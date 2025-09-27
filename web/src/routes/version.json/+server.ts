@@ -1,13 +1,11 @@
 import { json } from "@sveltejs/kit";
-import { getCommit, getBranch, getRemote, getVersion } from "@imput/version-info";
+import { version } from "@imput/version-info";
+// packages/version-info/index.js
+export const version = '11.5.0';
 
-export async function GET() {
-    return json({
-        commit: await getCommit(),
-        branch: await getBranch(),
-        remote: await getRemote(),
-        version: await getVersion()
-    });
-}
+export async function getVersion() { return '11.5.0'; }
+export async function getCommit() { return 'unknown'; }
+export async function getBranch() { return 'main'; }
+export async function getRemote() { return 'origin'; }
 
 export const prerender = false;
