@@ -2,8 +2,6 @@ import cors from "cors";
 import http from "node:http";
 import rateLimit from "express-rate-limit";
 import { setGlobalDispatcher, EnvHttpProxyAgent } from "undici";
-- import { getCommit, getBranch, getRemote, getVersion } from "@imput/version-info";
-+ // import nothing from version-info
 import jwt from "../security/jwt.js";
 import stream from "../stream/stream.js";
 import match from "../processing/match.js";
@@ -24,14 +22,13 @@ import * as APIKeys from "../security/api-keys.js";
 import * as Cookies from "../processing/cookie/manager.js";
 import * as YouTubeSession from "../processing/helpers/youtube-session.js";
 
-// Top of api.js
 const git = {
-    branch: 'main',     // or whatever your branch is
-    commit: 'unknown',  // or put actual commit hash if you want
-    remote: 'origin',   // or your repo URL
+    branch: 'main',
+    commit: 'unknown',
+    remote: 'origin',
 };
 
-const version = '11.5.0'; // replace with your current app version
+const version = '11.5.0';
 
 const acceptRegex = /^application\/json(; charset=utf-8)?$/;
 
